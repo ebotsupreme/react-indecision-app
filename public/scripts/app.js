@@ -31,6 +31,31 @@ var template = React.createElement(
         )
     )
 );
+
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Cornholio Beavus'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Age: 32'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: Los Angeles'
+    )
+);
+
 var appRoot = document.getElementById('app');
 
+var appRoot2 = document.getElementById('app2');
+
 ReactDOM.render(template, appRoot);
+
+ReactDOM.render(templateTwo, appRoot2);
