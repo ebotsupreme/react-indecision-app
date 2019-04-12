@@ -15,11 +15,17 @@ var template = (
 var userName = 'Mikey Jones';
 var userAge = 27;
 var userLocation = 'Los Angeles';
+
+var user = {
+    name: 'Eddie',
+    age: 26,
+    location: 'Philly'
+}
 var templateTwo = (
     <div>
-        <h1>{userName.toUpperCase()}</h1>
-        <p>Age: {userAge}</p>
-        <p>Location: {userLocation}</p>
+        <h1>{user.name.toUpperCase()}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {user.location}</p>
     </div>
 );
 
