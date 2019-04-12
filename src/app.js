@@ -1,10 +1,15 @@
 console.log('App.js is running!');
 
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Some extra info'
+}
+
 // JSX - JavaScript XML
 var template = (
     <div>
-        <h1>Indecision App</h1> 
-        <p>This is some info</p>
+        <h1>{app.title}</h1> 
+        <p>{app.subtitle}</p>
         <ol>
             <li>Item one</li>
             <li>Item two</li>
