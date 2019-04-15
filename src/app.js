@@ -24,13 +24,22 @@ var userLocation = 'Los Angeles';
 var user = {
     name: 'Eddie',
     age: 26,
-    location: 'Philly'
+    // location: 'Philly'
+}
+
+function getLocation(location) {
+
+    if (location) {
+        return location;
+    } else {
+        return 'Unkown';            
+    }
 }
 var templateTwo = (
     <div>
         <h1>{user.name.toUpperCase()}</h1>
         <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <p>Location: {getLocation(user.location)}</p>
     </div>
 );
 

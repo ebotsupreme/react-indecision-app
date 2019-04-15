@@ -42,9 +42,18 @@ var userLocation = 'Los Angeles';
 
 var user = {
     name: 'Eddie',
-    age: 26,
-    location: 'Philly'
+    age: 26
+    // location: 'Philly'
 };
+
+function getLocation(location) {
+
+    if (location) {
+        return location;
+    } else {
+        return 'Unkown';
+    }
+}
 var templateTwo = React.createElement(
     'div',
     null,
@@ -63,7 +72,7 @@ var templateTwo = React.createElement(
         'p',
         null,
         'Location: ',
-        user.location
+        getLocation(user.location)
     )
 );
 
