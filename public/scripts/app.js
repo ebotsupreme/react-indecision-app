@@ -15,12 +15,26 @@ var user = {
     printPlacesLived: function printPlacesLived() {
         var _this = this;
 
-        console.log(this.name);
-        console.log(this.cities);
-
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has lived in ' + city);
+        return this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + city;
         });
     }
 };
-user.printPlacesLived();
+console.log(user.printPlacesLived());
+
+var multiplier = {
+    // numbers - array of numbers 
+    numbers: [3, 6, 9],
+    // multiplyBy - single number
+    multiplyBy: 3,
+    //multiply - return a new array where the numbers have been multiplied
+    multiply: function multiply() {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return _this2.multiplyBy * number;
+        });
+    }
+};
+
+console.log(multiplier.multiply());
