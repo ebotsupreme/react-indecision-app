@@ -6,8 +6,12 @@ const app = {
     options: ['One', 'Two']
 }
 
+const onFormSubmit = (e) => {
+    e.preventDefault(); // stop page refresh
+    console.log('form submitted!');
 
-// JSX - JavaScript XML
+}
+
 const template = (
     <div>
         <h1>{app.title}</h1> 
@@ -17,40 +21,12 @@ const template = (
             <li>Item one</li>
             <li>Item two</li>
         </ol>
+        <form onSubmit={onFormSubmit}> 
+            <input type="text" name="option"/>
+            <button>Add Option</button>
+        </form>
     </div>
 );
 
-let count = 0;
-const addOne = () => {
-    count++;
-    renderCounterApp();
-};
-const minusOne = () => {
-    count --;
-    renderCounterApp();    
-};
-const reset = () => {
-    count = 0;
-    renderCounterApp();
-};
-
-
 const appRoot = document.getElementById('app');
-
-const renderCounterApp = () => {
-    const templateTwo = (
-        <div>
-            <h1>Count: {count}</h1>
-            <button onClick={addOne} >+1</button>
-            <button onClick={minusOne}>-1</button>
-    
-            <button onClick={reset}>Reset</button>
-    
-        </div>
-    );
-
-    ReactDOM.render(templateTwo, appRoot);
-
-}
-
-renderCounterApp();
+ReactDOM.render(template, appRoot);
