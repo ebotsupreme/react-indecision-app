@@ -31,6 +31,11 @@ const removeAll = () => {
     renderFunction();
 }
 
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    alert(option);
+}
 
 const appRoot = document.getElementById('app');
 
@@ -43,21 +48,11 @@ const renderFunction = () => {
             <h1>{app.title}</h1> 
             {app.subtitle && <p>Subtitle: {app.subtitle}</p>}
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
-            <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
             <button onClick={removeAll}>Remove All</button>
-
-            {
-                /*numbers.map((number) => {
-                    return <p key={number}>Number: {number}</p>
-                })*/
-            }
-            
-            
             <ol>
                 
-                {/* Map over app.options, get back an array of li's (set key and text) */}
                 {
-                    
                     app.options.map((option) => {
                         return <li key={option}>Item {option}</li>
                     })
@@ -73,7 +68,6 @@ const renderFunction = () => {
     ReactDOM.render(template, appRoot);
 
 }
-
 
 // initialize app render
 renderFunction();
