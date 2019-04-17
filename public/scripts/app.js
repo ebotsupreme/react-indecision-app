@@ -1,40 +1,69 @@
 'use strict';
 
-// arguments object - no long bound w arrow functions
-var add = function add(a, b) {
-    // console.log(arguments);
+console.log('App.js is running!');
 
-    return a + b;
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Some extra info',
+    options: ['One', 'Two']
+
+    // JSX - JavaScript XML
+};var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        'Subtitle: ',
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item one'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item two'
+        )
+    )
+);
+
+var count = 0;
+var addOne = function addOne() {
+    console.log('addOne');
 };
-console.log(add(55, 1));
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Count: ',
+        count
+    ),
+    React.createElement(
+        'button',
+        { onClick: addOne },
+        '+1'
+    )
+);
+console.log(templateTwo);
 
-// this keyword - no longer bound
-var user = {
-    name: 'Eddie',
-    cities: ['Los Angeles', 'Walnut', 'Glendale'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
+var appRoot2 = document.getElementById('app2');
 
-        return this.cities.map(function (city) {
-            return _this.name + ' has lived in ' + city;
-        });
-    }
-};
-console.log(user.printPlacesLived());
-
-var multiplier = {
-    // numbers - array of numbers 
-    numbers: [3, 6, 9],
-    // multiplyBy - single number
-    multiplyBy: 3,
-    //multiply - return a new array where the numbers have been multiplied
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.numbers.map(function (number) {
-            return _this2.multiplyBy * number;
-        });
-    }
-};
-
-console.log(multiplier.multiply());
+ReactDOM.render(templateTwo, appRoot2);
