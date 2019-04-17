@@ -36,24 +36,14 @@ const templateTwo = (
     <div>
         <h1>Count: {count}</h1>
         <button onClick={addOne} >+1</button>
-    </div>
-);
-
-const templateThree = (
-    <div>
         <button onClick={minusOne}>-1</button>
-    </div>
-);
-const templateFour = (
-    <div>
-        <button onClick={reset}>Reset</button>
-    </div>
-);
 
+        <button onClick={reset}>Reset</button>
+
+    </div>
+);
 
 
 const appRoot = document.getElementById('app');
-const appRoot2 = document.getElementById('app2');
 
-ReactDOM.render(templateThree, appRoot);
-ReactDOM.render(templateFour, appRoot2);
+ReactDOM.render(templateTwo, appRoot);

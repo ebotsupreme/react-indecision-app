@@ -67,21 +67,12 @@ var templateTwo = React.createElement(
         'button',
         { onClick: addOne },
         '+1'
-    )
-);
-
-var templateThree = React.createElement(
-    'div',
-    null,
+    ),
     React.createElement(
         'button',
         { onClick: minusOne },
         '-1'
-    )
-);
-var templateFour = React.createElement(
-    'div',
-    null,
+    ),
     React.createElement(
         'button',
         { onClick: reset },
@@ -90,7 +81,5 @@ var templateFour = React.createElement(
 );
 
 var appRoot = document.getElementById('app');
-var appRoot2 = document.getElementById('app2');
 
-ReactDOM.render(templateThree, appRoot);
-ReactDOM.render(templateFour, appRoot2);
+ReactDOM.render(templateTwo, appRoot);
