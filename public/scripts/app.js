@@ -22,6 +22,17 @@ var onFormSubmit = function onFormSubmit(e) {
     renderFunction();
 };
 
+// Remove all button
+// onclick wipe array and rerender
+var removeAll = function removeAll() {
+
+    app.options = [];
+    // console.log(app.options);
+    renderFunction();
+};
+
+var appRoot = document.getElementById('app');
+
 var renderFunction = function renderFunction() {
     var template = React.createElement(
         'div',
@@ -48,6 +59,11 @@ var renderFunction = function renderFunction() {
             app.options.length
         ),
         React.createElement(
+            'button',
+            { onClick: removeAll },
+            'Remove All'
+        ),
+        React.createElement(
             'ol',
             null,
             React.createElement(
@@ -72,10 +88,9 @@ var renderFunction = function renderFunction() {
             )
         )
     );
+
     ReactDOM.render(template, appRoot);
 };
-
-var appRoot = document.getElementById('app');
 
 // initialize app render
 renderFunction();

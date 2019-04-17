@@ -18,8 +18,20 @@ const onFormSubmit = (e) => {
 
     // re-render
     renderFunction();
+};
+
+
+// Remove all button
+// onclick wipe array and rerender
+const removeAll = () => {
+    
+    app.options = [];
+    // console.log(app.options);
+    renderFunction();
 }
 
+
+const appRoot = document.getElementById('app');
 
 const renderFunction = () => {
     const template = (
@@ -28,6 +40,8 @@ const renderFunction = () => {
             {app.subtitle && <p>Subtitle: {app.subtitle}</p>}
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
             <p>{app.options.length}</p>
+            <button onClick={removeAll}>Remove All</button>
+
             <ol>
                 <li>Item one</li>
                 <li>Item two</li>
@@ -38,13 +52,11 @@ const renderFunction = () => {
             </form>
         </div>
     );
+
     ReactDOM.render(template, appRoot);
 
 }
 
-
-
-const appRoot = document.getElementById('app');
 
 // initialize app render
 renderFunction();
