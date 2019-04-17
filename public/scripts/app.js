@@ -15,6 +15,7 @@ var onFormSubmit = function onFormSubmit(e) {
 
     if (option) {
         app.options.push(option);
+        console.log(app.options);
         e.target.elements.option.value = '';
     }
 
@@ -33,6 +34,9 @@ var removeAll = function removeAll() {
 
 var appRoot = document.getElementById('app');
 
+// const numbers = [55, 101, 1000];
+
+var counter = 0;
 var renderFunction = function renderFunction() {
     var template = React.createElement(
         'div',
@@ -66,16 +70,14 @@ var renderFunction = function renderFunction() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item one'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item two'
-            )
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: option },
+                    'Item ',
+                    option
+                );
+            })
         ),
         React.createElement(
             'form',
@@ -88,7 +90,7 @@ var renderFunction = function renderFunction() {
             )
         )
     );
-
+    counter++;
     ReactDOM.render(template, appRoot);
 };
 

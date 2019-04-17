@@ -13,6 +13,7 @@ const onFormSubmit = (e) => {
 
     if (option) {
         app.options.push(option);
+        console.log(app.options);
         e.target.elements.option.value = '';
     }
 
@@ -33,6 +34,9 @@ const removeAll = () => {
 
 const appRoot = document.getElementById('app');
 
+// const numbers = [55, 101, 1000];
+
+let counter = 0;
 const renderFunction = () => {
     const template = (
         <div>
@@ -42,9 +46,22 @@ const renderFunction = () => {
             <p>{app.options.length}</p>
             <button onClick={removeAll}>Remove All</button>
 
+            {
+                /*numbers.map((number) => {
+                    return <p key={number}>Number: {number}</p>
+                })*/
+            }
+            
+            
             <ol>
-                <li>Item one</li>
-                <li>Item two</li>
+                
+                {/* Map over app.options, get back an array of li's (set key and text) */}
+                {
+                    
+                    app.options.map((option) => {
+                        return <li key={option}>Item {option}</li>
+                    })
+                }
             </ol>
             <form onSubmit={onFormSubmit}> 
                 <input type="text" name="option"/>
@@ -52,7 +69,7 @@ const renderFunction = () => {
             </form>
         </div>
     );
-
+    counter ++;            
     ReactDOM.render(template, appRoot);
 
 }
