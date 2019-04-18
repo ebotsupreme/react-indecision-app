@@ -1,104 +1,45 @@
 'use strict';
 
-console.log('App.js is running!');
+// Visibility Toggle
 
-var app = {
-    title: 'Indecision App',
-    subtitle: 'Some extra info',
-    options: []
+// array
+var myMsg = "Hey. Theres are some details you can now";
+var toggleMsg = void 0;
+
+// function
+var toggle = function toggle() {
+    console.log('toggle on');
+    toggleMsg = myMsg;
+    console.log(toggleMsg);
+    render();
 };
 
-var onFormSubmit = function onFormSubmit(e) {
-    e.preventDefault(); // stop page refresh
-
-    var option = e.target.elements.option.value; // target is synthetic event, elemtns are what is avail to us in the dom, option is the name of input
-
-    if (option) {
-        app.options.push(option);
-        console.log(app.options);
-        e.target.elements.option.value = '';
-    }
-
-    // re-render
-    renderFunction();
-};
-
-// Remove all button
-// onclick wipe array and rerender
-var removeAll = function removeAll() {
-
-    app.options = [];
-    // console.log(app.options);
-    renderFunction();
-};
-
-var onMakeDecision = function onMakeDecision() {
-    var randomNum = Math.floor(Math.random() * app.options.length);
-    var option = app.options[randomNum];
-    alert(option);
-};
-
+// element to show
 var appRoot = document.getElementById('app');
 
-// const numbers = [55, 101, 1000];
-
-var counter = 0;
-var renderFunction = function renderFunction() {
+var render = function render() {
+    // template
     var template = React.createElement(
         'div',
         null,
         React.createElement(
             'h1',
             null,
-            app.title
-        ),
-        app.subtitle && React.createElement(
-            'p',
-            null,
-            'Subtitle: ',
-            app.subtitle
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options.length > 0 ? 'Here are your options' : 'No options'
+            'Visibility Toggle'
         ),
         React.createElement(
             'button',
-            { disabled: app.options.length === 0, onClick: onMakeDecision },
-            'What should I do?'
+            { onClick: toggle },
+            'Show details'
         ),
         React.createElement(
-            'button',
-            { onClick: removeAll },
-            'Remove All'
-        ),
-        React.createElement(
-            'ol',
+            'p',
             null,
-            app.options.map(function (option) {
-                return React.createElement(
-                    'li',
-                    { key: option },
-                    'Item ',
-                    option
-                );
-            })
-        ),
-        React.createElement(
-            'form',
-            { onSubmit: onFormSubmit },
-            React.createElement('input', { type: 'text', name: 'option' }),
-            React.createElement(
-                'button',
-                null,
-                'Add Option'
-            )
+            toggleMsg
         )
     );
-    counter++;
+    // reactdom
     ReactDOM.render(template, appRoot);
 };
-
-// initialize app render
-renderFunction();
+// render func call
+render();
