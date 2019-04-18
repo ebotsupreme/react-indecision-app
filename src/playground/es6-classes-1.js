@@ -5,7 +5,10 @@ class Person {
     }
 
     getGreeting() {
-        return 'Hi!';
+        // return 'Hi. I am ' + this.name + '!';
+
+        // template strings
+        return `Hi. I am ${ this.name }!`;
     }
 
 }
