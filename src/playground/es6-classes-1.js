@@ -1,7 +1,4 @@
 
-// 
-
-
 class Person {
     constructor(name = 'John Snow', age = 0) {
         this.name = name;
@@ -19,8 +16,16 @@ class Person {
 
 }
 
-const me = new Person('Eddie Jung', 34);
-console.log(me.getDescription());
+class Student extends Person {
+    constructor(name, age, major) {
+        // super refers to the parent class;
+        super(name, age);
+        this.major = major;
+    }
+}
 
-const other = new Person();
-console.log(other.getDescription());
+const me = new Student('Eddie Jung', 34, 'Computer Science');
+console.log(me);
+
+const other = new Student();
+console.log(other);
