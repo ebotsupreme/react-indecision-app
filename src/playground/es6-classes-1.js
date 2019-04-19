@@ -22,10 +22,25 @@ class Student extends Person {
         super(name, age);
         this.major = major;
     }
+
+    hasMajor() {
+        return !!this.major;
+    }
+
+    getDescription() {
+        let description = super.getDescription();
+
+        if (this.hasMajor()) {
+            description += ` Their major is ${this.major}.`;
+        }
+
+        return description;
+    }
+
 }
 
 const me = new Student('Eddie Jung', 34, 'Computer Science');
-console.log(me);
+console.log(me.getDescription());
 
 const other = new Student();
-console.log(other);
+console.log(other.getDescription());
