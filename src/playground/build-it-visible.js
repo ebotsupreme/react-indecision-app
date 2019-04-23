@@ -1,27 +1,71 @@
 // visibilityToggle App
 
-let visibility = false;
+class Visibility extends React.Component {
 
-// function
-const toggleVisibility = () => {
-    visibility = !visibility;
-    render();
-}
+    constructor(props) {
+        super(props);
+        this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+        this.state = {
+            visibility: false
+        }
+    }    
 
-const render = () => {
-    const jsx = (
-        <div>
+    handleToggleVisibility () {
+        this.setState((prevState) => {
+            return {
+                visibility: !prevState.visibility
+            };
+        });
+
+    }
+    render(){
+        return (
+            <div>
             <h1>Visibility Toggle</h1>
-            <button id="detailBtn" onClick={toggleVisibility}>{visibility ? 'Hide details' : 'Show details'}</button>
-            {visibility && (
+            <button onClick={this.handleToggleVisibility}>
+                {
+                    this.state.visibility ? 'Hide details' : 'Show details'
+                }
+            </button>
+            {this.state.visibility && (
                 <div>
                     <p>Hey. These are some details you can now see!</p>
-                </div>    
-            )}            
-        </div>
-    );
-    // reactdom
-    ReactDOM.render(jsx, document.getElementById('app'));
+                </div>
+            )}
+            </div>
+        );
+    }
+    
 }
-// render func call
-render();
+ReactDOM.render(<Visibility />, document.getElementById('app'));
+
+
+
+
+
+
+// let visibility = false;
+
+// // function
+// const toggleVisibility = () => {
+//     visibility = !visibility;
+//     render();
+// }
+
+// const render = () => {
+//     const jsx = (
+//         <div>
+//             <h1>Visibility Toggle</h1>
+//             <button id="detailBtn" onClick={toggleVisibility}>{visibility ? 'Hide details' : 'Show details'}</button>
+//             {visibility && (
+//                 <div>
+//                     <p>Hey. These are some details you can now see!</p>
+//                 </div>    
+//             )}            
+//         </div>
+//     );
+//     // reactdom
+//     ReactDOM.render(jsx, document.getElementById('app'));
+// }
+// // render func call
+// render();
