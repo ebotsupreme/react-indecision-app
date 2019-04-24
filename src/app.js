@@ -4,12 +4,14 @@ class IndecisionApp extends React.Component {
         super(props);
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
+
         this.state = {
             options: ['Thing one', 'Thing two', 'Thing three']
         }
     }
 
-    handleDeleteOptions () {
+    handleDeleteOptions() {
         this.setState(() => {
             return {
                 options: []
@@ -17,10 +19,18 @@ class IndecisionApp extends React.Component {
         });
     }
 
-    handlePick () {
+    handlePick() {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options[randomNum];
         alert(option);
+    }
+
+    handleAddOption(option) {
+        this.setState((prevState) => {
+            return {
+                options: prevState.options.concat(option)
+            };
+        });
     }
 
     render() {
@@ -30,12 +40,17 @@ class IndecisionApp extends React.Component {
         return (
             <div>
                 <Header title={title} subtitle={subtitle} />
-                <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
+                <Action 
+                    handlePick={this.handlePick}
+                    hasOptions={this.state.options.length > 0} 
+                />
                 <Options 
                     options={this.state.options} 
                     handleDeleteOptions={this.handleDeleteOptions}
                 />
-                <AddOption />
+                <AddOption 
+                    handleAddOption={this.handleAddOption} 
+                />
             </div>
         );
     }
@@ -53,7 +68,6 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-
     render() {
         return (
             <div>
@@ -69,8 +83,6 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
-
-
     render() {
         return (
             <div>
@@ -98,16 +110,18 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
 
     handleAddOption (e) {
          e.preventDefault();
 
         const option = e.target.elements.option.value.trim();
 
-        console.log(e.target.elements.option.value);
-
         if (option) {
-            alert('8=======D')
+            this.props.handleAddOption(option);
         }
 
     }
