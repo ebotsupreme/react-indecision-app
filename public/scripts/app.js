@@ -27,7 +27,15 @@ var IndecisionApp = function (_React$Component) {
         return _this;
     }
 
+    // only accessible with class based components
+
+
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            console.log('componentDidMount!');
+        }
+    }, {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
