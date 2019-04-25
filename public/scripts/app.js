@@ -27,13 +27,18 @@ var IndecisionApp = function (_React$Component) {
         return _this;
     }
 
-    // only accessible with class based components
+    // only accessible with class based components (lifecycle method)
 
 
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
             console.log('componentDidMount!');
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            console.log('componentDidUpdate!');
         }
     }, {
         key: 'handleDeleteOptions',
@@ -158,8 +163,7 @@ var Options = function Options(props) {
                 optionText: option,
                 handleDeleteOption: props.handleDeleteOption
             });
-        }),
-        React.createElement(Option, null)
+        })
     );
 };
 

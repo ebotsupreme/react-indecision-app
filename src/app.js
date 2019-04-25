@@ -12,9 +12,12 @@ class IndecisionApp extends React.Component {
         }
     }
 
-    // only accessible with class based components
+    // only accessible with class based components (lifecycle method)
     componentDidMount() {
         console.log('componentDidMount!');
+    }
+    componentDidUpdate() {
+        console.log('componentDidUpdate!');
     }
 
     handleDeleteOptions() {
@@ -114,7 +117,7 @@ const Options = (props) => {
                     />
                 ))
             }
-            <Option />
+            
         </div>
     );
 }
