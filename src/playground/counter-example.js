@@ -1,4 +1,3 @@
-// count - setup default prop value to 0
 
 class Counter extends React.Component {
 
@@ -53,7 +52,7 @@ Counter.defaultProps = {
     count: 0
 }
 
-ReactDOM.render(<Counter count={[10]}/>, document.getElementById('app'));
+ReactDOM.render(<Counter />, document.getElementById('app'));
 
 
 // let count = 0;
