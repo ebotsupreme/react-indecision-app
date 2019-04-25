@@ -35,10 +35,19 @@ var IndecisionApp = function (_React$Component) {
         value: function componentDidMount() {
             console.log('componentDidMount!');
         }
+        // when updates / changes are made
+
     }, {
         key: 'componentDidUpdate',
-        value: function componentDidUpdate() {
+        value: function componentDidUpdate(prevProps, prevState) {
             console.log('componentDidUpdate!');
+        }
+        // when switching pages
+
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('componentWillUnmount!');
         }
     }, {
         key: 'handleDeleteOptions',

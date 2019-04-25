@@ -16,8 +16,13 @@ class IndecisionApp extends React.Component {
     componentDidMount() {
         console.log('componentDidMount!');
     }
-    componentDidUpdate() {
+    // when updates / changes are made
+    componentDidUpdate(prevProps, prevState) {
         console.log('componentDidUpdate!');
+    }
+    // when switching pages
+    componentWillUnmount() {
+        console.log('componentWillUnmount!');
     }
 
     handleDeleteOptions() {
