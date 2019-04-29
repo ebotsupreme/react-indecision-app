@@ -14,10 +14,18 @@ class IndecisionApp extends React.Component {
 
     // only accessible with class based components (lifecycle method)
     componentDidMount() {
-        const json = localStorage.getItem('options');
-        const options = JSON.parse(json);
 
-        this.setState(() => ({ options }));
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json);
+    
+            if (options) {
+                this.setState(() => ({ options }));
+            } 
+        } catch (e) {
+            // Do nothing at all
+        }
+
     }
     // when updates / changes are made
     componentDidUpdate(prevProps, prevState) {
