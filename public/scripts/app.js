@@ -30,12 +30,8 @@ var Counter = function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             try {
-                var json = localStorage.getItem('count');
-                console.log('mount');
-                console.log(json);
-                var count = JSON.parse(json);
-                console.log('count');
-                console.log(count);
+                var stringCount = localStorage.getItem('count');
+                var count = parseInt(stringCount, 10);
 
                 if (count) {
                     this.setState(function () {
@@ -49,9 +45,8 @@ var Counter = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            if (parseInt(prevState.count) !== parseInt(this.state.count)) {
-                var json = JSON.stringify(this.state.count);
-                localStorage.setItem('count', json);
+            if (prevState.count !== this.state.count) {
+                localStorage.setItem('count', this.state.count);
             }
         }
     }, {
