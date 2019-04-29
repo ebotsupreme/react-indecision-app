@@ -31,11 +31,11 @@ class Counter extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.count.toString().length !== this.state.count.toString().length) {
+        // if (prevState.count.toString().length !== this.state.count.toString().length) {
             console.log('xxxx');
-            console.log(prevState.count.length);
+            console.log(parseInt(prevState.count));
             console.log('yyyy');
-            console.log(this.state.count.length);
+            console.log(parseInt(this.state.count));
             console.log('zzzzz');
             console.log('saving data!');
             console.log('prevState');
@@ -43,7 +43,11 @@ class Counter extends React.Component {
             const json = JSON.stringify(this.state.count);
             console.log(isNaN(json));
             localStorage.setItem('count', json);
+        // }
+        if (parseInt(prevState.count) !== parseInt(this.state.count)) {
+            console.log('PAUL WALL');
         }
+
     }
 
     handleAddOne() {
