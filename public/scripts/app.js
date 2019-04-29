@@ -49,21 +49,9 @@ var Counter = function (_React$Component) {
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            // if (prevState.count.toString().length !== this.state.count.toString().length) {
-            console.log('xxxx');
-            console.log(parseInt(prevState.count));
-            console.log('yyyy');
-            console.log(parseInt(this.state.count));
-            console.log('zzzzz');
-            console.log('saving data!');
-            console.log('prevState');
-            console.log(prevState);
-            var json = JSON.stringify(this.state.count);
-            console.log(isNaN(json));
-            localStorage.setItem('count', json);
-            // }
             if (parseInt(prevState.count) !== parseInt(this.state.count)) {
-                console.log('PAUL WALL');
+                var json = JSON.stringify(this.state.count);
+                localStorage.setItem('count', json);
             }
         }
     }, {

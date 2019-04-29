@@ -31,23 +31,10 @@ class Counter extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // if (prevState.count.toString().length !== this.state.count.toString().length) {
-            console.log('xxxx');
-            console.log(parseInt(prevState.count));
-            console.log('yyyy');
-            console.log(parseInt(this.state.count));
-            console.log('zzzzz');
-            console.log('saving data!');
-            console.log('prevState');
-            console.log(prevState);
-            const json = JSON.stringify(this.state.count);
-            console.log(isNaN(json));
-            localStorage.setItem('count', json);
-        // }
         if (parseInt(prevState.count) !== parseInt(this.state.count)) {
-            console.log('PAUL WALL');
+            const json = JSON.stringify(this.state.count);
+            localStorage.setItem('count', json);
         }
-
     }
 
     handleAddOne() {
