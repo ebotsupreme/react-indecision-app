@@ -14,11 +14,18 @@ class IndecisionApp extends React.Component {
 
     // only accessible with class based components (lifecycle method)
     componentDidMount() {
-        console.log('componentDidMount!');
+        console.log('Fetching data!');
     }
     // when updates / changes are made
     componentDidUpdate(prevProps, prevState) {
-        console.log('componentDidUpdate!');
+
+        if (prevState.options.length !== this.state.options.length) {
+            // localStorage
+            console.log('Saving data!');
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
+
     }
     // when switching pages
     componentWillUnmount() {

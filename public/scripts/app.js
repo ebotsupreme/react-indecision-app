@@ -33,14 +33,20 @@ var IndecisionApp = function (_React$Component) {
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log('componentDidMount!');
+            console.log('Fetching data!');
         }
         // when updates / changes are made
 
     }, {
         key: 'componentDidUpdate',
         value: function componentDidUpdate(prevProps, prevState) {
-            console.log('componentDidUpdate!');
+
+            if (prevState.options.length !== this.state.options.length) {
+                // localStorage
+                console.log('Saving data!');
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem('options', json);
+            }
         }
         // when switching pages
 
