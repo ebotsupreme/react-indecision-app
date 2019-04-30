@@ -1,3 +1,7 @@
 console.log('person.js is running');
-export const isAdult = (x) =>  x >= 18 ? true : false ;
-export const canDrink = (x) =>  x >= 21 ? true : false ;
+const isAdult = (x) =>  x >= 18;
+const canDrink = (x) =>  x >= 21;
+
+export { isAdult, canDrink }
+
+export default (age) => age >= 65; 
